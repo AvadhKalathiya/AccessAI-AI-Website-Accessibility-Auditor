@@ -1,0 +1,211 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    
+    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.9" />
+    </linearGradient>
+
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="60" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="subtleGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="20" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .font-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+  </style>
+
+  <!-- Background Canvas -->
+  <rect width="1600" height="900" fill="url(#bgGradient)" />
+
+  <!-- Subtle Grid Accent Lines -->
+  <g stroke="#334155" stroke-width="1" stroke-opacity="0.25">
+    <line x1="0" y1="150" x2="1600" y2="150" />
+    <line x1="0" y1="300" x2="1600" y2="300" />
+    <line x1="0" y1="450" x2="1600" y2="450" />
+    <line x1="0" y1="600" x2="1600" y2="600" />
+    <line x1="0" y1="750" x2="1600" y2="750" />
+    <line x1="200" y1="0" x2="200" y2="900" />
+    <line x1="400" y1="0" x2="400" y2="900" />
+    <line x1="600" y1="0" x2="600" y2="900" />
+    <line x1="800" y1="0" x2="800" y2="900" />
+    <line x1="1000" y1="0" x2="1000" y2="900" />
+    <line x1="1200" y1="0" x2="1200" y2="900" />
+    <line x1="1400" y1="0" x2="1400" y2="900" />
+  </g>
+
+  <!-- Glowing Radial Background Orbs -->
+  <circle cx="250" cy="250" r="180" fill="#2563eb" fill-opacity="0.15" filter="url(#glow)" />
+  <circle cx="1350" cy="650" r="220" fill="#059669" fill-opacity="0.12" filter="url(#glow)" />
+  <circle cx="800" cy="850" r="160" fill="#0284c7" fill-opacity="0.12" filter="url(#glow)" />
+
+  <!-- Top Release Pill Badge -->
+  <g transform="translate(140, 110)">
+    <rect width="360" height="42" rx="21" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.4" />
+    <circle cx="24" cy="21" r="6" fill="#38bdf8" filter="url(#subtleGlow)" />
+    <text x="42" y="27" fill="#38bdf8" font-size="15" font-weight="600" class="font-sans" letter-spacing="1">ACCESSAI CORE v0.1.0 • PRODUCTION READY</text>
+  </g>
+
+  <!-- Main Hero Brand Title -->
+  <g transform="translate(140, 230)">
+    <text x="0" y="0" fill="#ffffff" font-size="64" font-weight="900" class="font-sans" letter-spacing="-1">
+      Access<tspan fill="url(#primaryGradient)">AI</tspan>
+    </text>
+    <text x="0" y="55" fill="#f8fafc" font-size="34" font-weight="700" class="font-sans" letter-spacing="-0.5">
+      Autonomous Website Accessibility Auditor &amp; AI Remediation Engine
+    </text>
+    <text x="0" y="105" fill="#94a3b8" font-size="20" font-weight="400" class="font-sans" max-width="800">
+      Engineered with Next.js 15, Playwright Chromium, axe-core 4.14, and local Ollama inference.
+    </text>
+    <text x="0" y="135" fill="#94a3b8" font-size="20" font-weight="400" class="font-sans">
+      Full WCAG 2.1 AA evaluation on real client-hydrated DOM states with 100% deterministic fallback.
+    </text>
+  </g>
+
+  <!-- Metric / Feature Highlights Row (Cards) -->
+  <!-- Card 1: Scanning Engine -->
+  <g transform="translate(140, 430)">
+    <rect width="400" height="230" rx="16" fill="url(#cardBg)" stroke="#334155" stroke-width="1.5" />
+    <rect x="24" y="24" width="48" height="48" rx="12" fill="#2563eb" fill-opacity="0.2" stroke="#38bdf8" stroke-width="1" />
+    <!-- Browser Icon SVG Path -->
+    <path d="M40 40 m -10,0 a 10,10 0 1,0 20,0 a 10,10 0 1,0 -20,0 M48 34 l -16 12 M32 34 l 16 12" stroke="#38bdf8" stroke-width="2.5" fill="none" stroke-linecap="round" />
+    <text x="88" y="44" fill="#ffffff" font-size="20" font-weight="700" class="font-sans">Headless Browser Engine</text>
+    <text x="88" y="65" fill="#38bdf8" font-size="13" font-weight="600" class="font-mono">PLAYWRIGHT + AXE-CORE</text>
+    <text x="24" y="112" fill="#cbd5e1" font-size="15" font-weight="400" class="font-sans" line-height="24">
+      • True client DOM hydration testing
+    </text>
+    <text x="24" y="142" fill="#cbd5e1" font-size="15" font-weight="400" class="font-sans">
+      • Computed CSS color contrast &amp; ARIA states
+    </text>
+    <text x="24" y="172" fill="#cbd5e1" font-size="15" font-weight="400" class="font-sans">
+      • Outbound proxy socket connection pinning
+    </text>
+    <text x="24" y="202" fill="#34d399" font-size="13" font-weight="600" class="font-mono">✓ SSRF DEFENSE &amp; TOCTOU MITIGATION</text>
+  </g>
+
+  <!-- Card 2: AI Remediation & Fallback -->
+  <g transform="translate(580, 430)">
+    <rect width="400" height="230" rx="16" fill="url(#cardBg)" stroke="#334155" stroke-width="1.5" />
+    <rect x="24" y="24" width="48" height="48" rx="12" fill="#059669" fill-opacity="0.2" stroke="#34d399" stroke-width="1" />
+    <!-- Bot Icon SVG Path -->
+    <path d="M48 36 h -16 a 4,4 0 0,0 -4,4 v 8 a 4,4 0 0,0 4,4 h 16 a 4,4 0 0,0 4,-4 v -8 a 4,4 0 0,0 -4,-4 Z M36 44 h 0.01 M44 44 h 0.01 M40 32 v 4" stroke="#34d399" stroke-width="2.5" fill="none" stroke-linecap="round" />
+    <text x="88" y="44" fill="#ffffff" font-size="20" font-weight="700" class="font-sans">AI &amp; Deterministic Fallback</text>
+    <text x="88" y="65" fill="#34d399" font-size="13" font-weight="600" class="font-mono">OLLAMA + STATIC RULES</text>
+    <text x="24" y="112" fill="#cbd5e1" font-size="15" font-weight="400" class="font-sans">
+      • Contextual local AI code repair guidance
+    </text>
+    <text x="24" y="142" fill="#cbd5e1" font-size="15" font-weight="400" class="font-sans">
+      • Strict Zod JSON schema validation
+    </text>
+    <text x="24" y="172" fill="#cbd5e1" font-size="15" font-weight="400" class="font-sans">
+      • Guaranteed offline fallback rule library
+    </text>
+    <text x="24" y="202" fill="#34d399" font-size="13" font-weight="600" class="font-mono">✓ ZERO EXTERNAL CLOUD EGRESS</text>
+  </g>
+
+  <!-- Card 3: Storage, Analytics & CI -->
+  <g transform="translate(1020, 430)">
+    <rect width="440" height="230" rx="16" fill="url(#cardBg)" stroke="#334155" stroke-width="1.5" />
+    <rect x="24" y="24" width="48" height="48" rx="12" fill="#8b5cf6" fill-opacity="0.2" stroke="#a78bfa" stroke-width="1" />
+    <!-- Storage & Analytics Icon -->
+    <path d="M34 36 a 12,4 0 1,0 24,0 a 12,4 0 1,0 -24,0 M34 44 a 12,4 0 0,0 24,0 M34 52 a 12,4 0 0,0 24,0" stroke="#a78bfa" stroke-width="2.5" fill="none" />
+    <text x="88" y="44" fill="#ffffff" font-size="20" font-weight="700" class="font-sans">Storage, Exports &amp; CI/CD</text>
+    <text x="88" y="65" fill="#a78bfa" font-size="13" font-weight="600" class="font-mono">SQLITE WAL + DRIZZLE ORM</text>
+    <text x="24" y="112" fill="#cbd5e1" font-size="15" font-weight="400" class="font-sans">
+      • Embedded WAL mode SQLite with transactions
+    </text>
+    <text x="24" y="142" fill="#cbd5e1" font-size="15" font-weight="400" class="font-sans">
+      • Multi-format exports: PDFKit, CSV, JSON
+    </text>
+    <text x="24" y="172" fill="#cbd5e1" font-size="15" font-weight="400" class="font-sans">
+      • GitHub Actions CI with 8 automated gates
+    </text>
+    <text x="24" y="202" fill="#34d399" font-size="13" font-weight="600" class="font-mono">✓ 185 VERIFIED AUTOMATED TESTS</text>
+  </g>
+
+  <!-- Bottom Badges / Tech Strip -->
+  <g transform="translate(140, 715)">
+    <rect width="1320" height="70" rx="12" fill="#0f172a" stroke="#334155" stroke-width="1" />
+    
+    <text x="35" y="42" fill="#94a3b8" font-size="14" font-weight="600" class="font-mono">CORE STACK:</text>
+    
+    <!-- Badge 1 -->
+    <g transform="translate(150, 18)">
+      <rect width="110" height="34" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text x="55" y="22" fill="#e2e8f0" font-size="13" font-weight="600" class="font-sans" text-anchor="middle">Next.js 15.1</text>
+    </g>
+    <!-- Badge 2 -->
+    <g transform="translate(275, 18)">
+      <rect width="90" height="34" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text x="45" y="22" fill="#e2e8f0" font-size="13" font-weight="600" class="font-sans" text-anchor="middle">React 19</text>
+    </g>
+    <!-- Badge 3 -->
+    <g transform="translate(380, 18)">
+      <rect width="110" height="34" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text x="55" y="22" fill="#e2e8f0" font-size="13" font-weight="600" class="font-sans" text-anchor="middle">TypeScript 5</text>
+    </g>
+    <!-- Badge 4 -->
+    <g transform="translate(505, 18)">
+      <rect width="135" height="34" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text x="67" y="22" fill="#e2e8f0" font-size="13" font-weight="600" class="font-sans" text-anchor="middle">axe-core 4.14</text>
+    </g>
+    <!-- Badge 5 -->
+    <g transform="translate(655, 18)">
+      <rect width="145" height="34" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text x="72" y="22" fill="#e2e8f0" font-size="13" font-weight="600" class="font-sans" text-anchor="middle">Playwright 1.64</text>
+    </g>
+    <!-- Badge 6 -->
+    <g transform="translate(815, 18)">
+      <rect width="110" height="34" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text x="55" y="22" fill="#e2e8f0" font-size="13" font-weight="600" class="font-sans" text-anchor="middle">SQLite WAL</text>
+    </g>
+    <!-- Badge 7 -->
+    <g transform="translate(940, 18)">
+      <rect width="125" height="34" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text x="62" y="22" fill="#e2e8f0" font-size="13" font-weight="600" class="font-sans" text-anchor="middle">Drizzle ORM</text>
+    </g>
+    <!-- Badge 8 -->
+    <g transform="translate(1080, 18)">
+      <rect width="110" height="34" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text x="55" y="22" fill="#e2e8f0" font-size="13" font-weight="600" class="font-sans" text-anchor="middle">Ollama AI</text>
+    </g>
+    <!-- Badge 9 -->
+    <g transform="translate(1205, 18)">
+      <rect width="90" height="34" rx="8" fill="#065f46" stroke="#34d399" stroke-width="1" />
+      <text x="45" y="22" fill="#34d399" font-size="13" font-weight="700" class="font-sans" text-anchor="middle">Docker</text>
+    </g>
+  </g>
+
+  <!-- Footer Notice -->
+  <g transform="translate(140, 830)">
+    <text x="0" y="0" fill="#64748b" font-size="14" class="font-sans">
+      Automated accessibility scans evaluate ~30%–40% of WCAG criteria. Manual keyboard, screen-reader, and usability testing remain essential.
+    </text>
+    <text x="1320" y="0" fill="#64748b" font-size="14" class="font-sans" text-anchor="end">
+      Open Source Software • Licensed under MIT
+    </text>
+  </g>
+</svg>

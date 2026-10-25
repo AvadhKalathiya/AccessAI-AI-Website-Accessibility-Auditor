@@ -1,0 +1,258 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" width="100%" height="100%">
+  <defs>
+    <linearGradient id="archBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="clientGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="edgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+    <linearGradient id="engineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#4f46e5" />
+    </linearGradient>
+    <linearGradient id="dbGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ec4899" />
+      <stop offset="100%" stop-color="#be185d" />
+    </linearGradient>
+
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <style>
+    .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+  </style>
+
+  <!-- Background -->
+  <rect width="1200" height="720" fill="url(#archBg)" />
+
+  <!-- Grid overlay -->
+  <g stroke="#334155" stroke-width="1" stroke-opacity="0.2">
+    <line x1="0" y1="180" x2="1200" y2="180" />
+    <line x1="0" y1="360" x2="1200" y2="360" />
+    <line x1="0" y1="540" x2="1200" y2="540" />
+    <line x1="300" y1="0" x2="300" y2="720" />
+    <line x1="600" y1="0" x2="600" y2="720" />
+    <line x1="900" y1="0" x2="900" y2="720" />
+  </g>
+
+  <!-- Title & Subtitle -->
+  <text x="60" y="55" fill="#f8fafc" class="sans" font-size="24" font-weight="800" letter-spacing="-0.5">AccessAI Production Architecture</text>
+  <text x="60" y="80" fill="#94a3b8" class="sans" font-size="13">End-to-End System Topology: Security Perimeter, Scanning Core, AI Remediation &amp; Persistence</text>
+
+  <!-- 1. Client Tier (Left) -->
+  <g transform="translate(60, 120)" filter="url(#shadow)">
+    <rect width="250" height="530" rx="14" fill="#0f172a" stroke="#334155" stroke-width="1.5" />
+    <rect width="250" height="42" rx="14" fill="url(#clientGrad)" opacity="0.15" />
+    <text x="20" y="27" fill="#38bdf8" class="sans" font-size="14" font-weight="700">Client / Presentation Tier</text>
+    
+    <!-- Next.js App Router Box -->
+    <g transform="translate(18, 55)">
+      <rect width="214" height="100" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.4" />
+      <text x="14" y="24" fill="#f8fafc" class="sans" font-size="13" font-weight="600">Next.js 15 App Router</text>
+      <text x="14" y="44" fill="#94a3b8" class="sans" font-size="11">React 19 Server Components</text>
+      <text x="14" y="60" fill="#94a3b8" class="sans" font-size="11">Tailwind CSS + Lucide Icons</text>
+      <text x="14" y="76" fill="#38bdf8" class="mono" font-size="10">/ (Dashboard) | /scans/[id]</text>
+    </g>
+
+    <!-- Real-time SSE Stream Consumer -->
+    <g transform="translate(18, 170)">
+      <rect width="214" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="14" y="24" fill="#f8fafc" class="sans" font-size="13" font-weight="600">Real-Time Event Stream</text>
+      <text x="14" y="44" fill="#94a3b8" class="sans" font-size="11">Server-Sent Events (SSE)</text>
+      <text x="14" y="60" fill="#94a3b8" class="sans" font-size="11">Live stage &amp; progress tracker</text>
+      <text x="14" y="76" fill="#38bdf8" class="mono" font-size="10">EventSource client hook</text>
+    </g>
+
+    <!-- Analytics & Export UI -->
+    <g transform="translate(18, 275)">
+      <rect width="214" height="100" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="14" y="24" fill="#f8fafc" class="sans" font-size="13" font-weight="600">Interactive Analytics</text>
+      <text x="14" y="44" fill="#94a3b8" class="sans" font-size="11">Recharts Severity Breakdown</text>
+      <text x="14" y="60" fill="#94a3b8" class="sans" font-size="11">Multi-format Export Actions</text>
+      <text x="14" y="78" fill="#34d399" class="mono" font-size="10">PDF, CSV, JSON downloads</text>
+    </g>
+
+    <!-- Remediation Interactive UI -->
+    <g transform="translate(18, 390)">
+      <rect width="214" height="115" rx="8" fill="#1e293b" stroke="#ec4899" stroke-width="1" stroke-opacity="0.3" />
+      <text x="14" y="24" fill="#f8fafc" class="sans" font-size="13" font-weight="600">AI Remediation Panel</text>
+      <text x="14" y="44" fill="#94a3b8" class="sans" font-size="11">Side-by-side diff visualizer</text>
+      <text x="14" y="60" fill="#94a3b8" class="sans" font-size="11">One-click copy snippet</text>
+      <text x="14" y="76" fill="#94a3b8" class="sans" font-size="11">Confidence &amp; rationale tags</text>
+      <text x="14" y="94" fill="#ec4899" class="mono" font-size="10">Interactive live trigger</text>
+    </g>
+  </g>
+
+  <!-- 2. Security & API Tier (Center Left) -->
+  <g transform="translate(350, 120)" filter="url(#shadow)">
+    <rect width="240" height="530" rx="14" fill="#0f172a" stroke="#334155" stroke-width="1.5" />
+    <rect width="240" height="42" rx="14" fill="url(#edgeGrad)" opacity="0.15" />
+    <text x="20" y="27" fill="#fbbf24" class="sans" font-size="14" font-weight="700">Security &amp; Ingress</text>
+
+    <!-- Rate Limiter -->
+    <g transform="translate(18, 55)">
+      <rect width="204" height="80" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="14" y="22" fill="#f8fafc" class="sans" font-size="12" font-weight="600">Sliding Window Limiter</text>
+      <text x="14" y="40" fill="#94a3b8" class="sans" font-size="11">Per-IP bucket algorithm</text>
+      <text x="14" y="56" fill="#94a3b8" class="sans" font-size="11">Burst &amp; brute-force defense</text>
+      <text x="14" y="70" fill="#f59e0b" class="mono" font-size="9">HTTP 429 Too Many Requests</text>
+    </g>
+
+    <!-- SSRF Defense Engine -->
+    <g transform="translate(18, 150)">
+      <rect width="204" height="130" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.5" />
+      <text x="14" y="22" fill="#fbbf24" class="sans" font-size="12" font-weight="700">SSRF Defense Perimeter</text>
+      <text x="14" y="40" fill="#94a3b8" class="sans" font-size="11">• DNS Resolution &amp; Pinning</text>
+      <text x="14" y="56" fill="#94a3b8" class="sans" font-size="11">• Private IP block (10/8, 192.168)</text>
+      <text x="14" y="72" fill="#94a3b8" class="sans" font-size="11">• Loopback &amp; Cloud Metadata</text>
+      <text x="14" y="88" fill="#94a3b8" class="sans" font-size="11">• RFC 6052 NAT64 IPv4 unmap</text>
+      <text x="14" y="104" fill="#94a3b8" class="sans" font-size="11">• Outbound forward proxy</text>
+      <text x="14" y="120" fill="#f59e0b" class="mono" font-size="9">DNS rebinding immunity</text>
+    </g>
+
+    <!-- API Route Handlers -->
+    <g transform="translate(18, 295)">
+      <rect width="204" height="120" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="14" y="22" fill="#f8fafc" class="sans" font-size="12" font-weight="600">REST &amp; SSE Handlers</text>
+      <text x="14" y="42" fill="#38bdf8" class="mono" font-size="10">POST /api/scans</text>
+      <text x="14" y="58" fill="#38bdf8" class="mono" font-size="10">GET  /api/scans/[id]/progress</text>
+      <text x="14" y="74" fill="#38bdf8" class="mono" font-size="10">POST /api/scans/[id]/remediate</text>
+      <text x="14" y="90" fill="#38bdf8" class="mono" font-size="10">GET  /api/scans/[id]/export</text>
+      <text x="14" y="106" fill="#38bdf8" class="mono" font-size="10">GET  /api/health</text>
+    </g>
+
+    <!-- Concurrency / Semaphore -->
+    <g transform="translate(18, 430)">
+      <rect width="204" height="75" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="14" y="22" fill="#f8fafc" class="sans" font-size="12" font-weight="600">Job Concurrency Pool</text>
+      <text x="14" y="40" fill="#94a3b8" class="sans" font-size="11">Bounded execution queue</text>
+      <text x="14" y="56" fill="#94a3b8" class="sans" font-size="11">Prevents OOM / CPU spikes</text>
+    </g>
+  </g>
+
+  <!-- 3. Scanning Engine Core (Center Right) -->
+  <g transform="translate(630, 120)" filter="url(#shadow)">
+    <rect width="250" height="530" rx="14" fill="#0f172a" stroke="#334155" stroke-width="1.5" />
+    <rect width="250" height="42" rx="14" fill="url(#engineGrad)" opacity="0.15" />
+    <text x="20" y="27" fill="#818cf8" class="sans" font-size="14" font-weight="700">Scanning Core (Playwright)</text>
+
+    <!-- Browser Sandbox -->
+    <g transform="translate(18, 55)">
+      <rect width="214" height="110" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="1" stroke-opacity="0.4" />
+      <text x="14" y="22" fill="#f8fafc" class="sans" font-size="12" font-weight="600">Isolated Browser Context</text>
+      <text x="14" y="40" fill="#94a3b8" class="sans" font-size="11">Playwright Headless Chromium</text>
+      <text x="14" y="56" fill="#94a3b8" class="sans" font-size="11">Pinned IP proxy socket</text>
+      <text x="14" y="72" fill="#94a3b8" class="sans" font-size="11">Redirect &amp; origin trap hooks</text>
+      <text x="14" y="90" fill="#818cf8" class="mono" font-size="10">Zero-trust network pipe</text>
+    </g>
+
+    <!-- axe-core Runner -->
+    <g transform="translate(18, 180)">
+      <rect width="214" height="120" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="14" y="22" fill="#f8fafc" class="sans" font-size="12" font-weight="600">axe-core Engine Injection</text>
+      <text x="14" y="40" fill="#94a3b8" class="sans" font-size="11">Direct disk-loaded axe.min.js</text>
+      <text x="14" y="56" fill="#94a3b8" class="sans" font-size="11">WCAG 2.0 / 2.1 / 2.2 Rulesets</text>
+      <text x="14" y="72" fill="#94a3b8" class="sans" font-size="11">Cross-origin iframe fallback</text>
+      <text x="14" y="90" fill="#94a3b8" class="sans" font-size="11">Severity classification (Critical..Minor)</text>
+      <text x="14" y="106" fill="#10b981" class="mono" font-size="9">Standardized accessibility graph</text>
+    </g>
+
+    <!-- Normalizer & Scorer -->
+    <g transform="translate(18, 315)">
+      <rect width="214" height="95" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="14" y="22" fill="#f8fafc" class="sans" font-size="12" font-weight="600">Result Normalizer</text>
+      <text x="14" y="40" fill="#94a3b8" class="sans" font-size="11">Deduplication &amp; DOM trimming</text>
+      <text x="14" y="56" fill="#94a3b8" class="sans" font-size="11">Weighted scoring formula (0-100)</text>
+      <text x="14" y="74" fill="#f59e0b" class="mono" font-size="10">Normalized Violation Entities</text>
+    </g>
+
+    <!-- Export Engines -->
+    <g transform="translate(18, 425)">
+      <rect width="214" height="80" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="14" y="22" fill="#f8fafc" class="sans" font-size="12" font-weight="600">Multi-Format Generators</text>
+      <text x="14" y="40" fill="#94a3b8" class="sans" font-size="11">PDFKit visual executive report</text>
+      <text x="14" y="56" fill="#94a3b8" class="sans" font-size="11">CSV formula injection sanitized</text>
+    </g>
+  </g>
+
+  <!-- 4. Persistence & AI (Right) -->
+  <g transform="translate(920, 120)" filter="url(#shadow)">
+    <rect width="220" height="530" rx="14" fill="#0f172a" stroke="#334155" stroke-width="1.5" />
+    <rect width="220" height="42" rx="14" fill="url(#aiGrad)" opacity="0.15" />
+    <text x="20" y="27" fill="#f472b6" class="sans" font-size="14" font-weight="700">AI &amp; Persistence</text>
+
+    <!-- Drizzle ORM + SQLite -->
+    <g transform="translate(16, 55)">
+      <rect width="188" height="150" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1" stroke-opacity="0.4" />
+      <text x="12" y="22" fill="#34d399" class="sans" font-size="12" font-weight="600">Storage / Drizzle ORM</text>
+      <text x="12" y="42" fill="#f8fafc" class="sans" font-size="11" font-weight="500">SQLite (Local &amp; Docker)</text>
+      <text x="12" y="58" fill="#94a3b8" class="sans" font-size="11">WAL Mode + Foreign Keys</text>
+      <text x="12" y="74" fill="#94a3b8" class="sans" font-size="11">Production: /app/data volume</text>
+      <text x="12" y="96" fill="#f8fafc" class="sans" font-size="11" font-weight="500">PostgreSQL (Distributed)</text>
+      <text x="12" y="112" fill="#94a3b8" class="sans" font-size="11">Schema-compatible</text>
+      <text x="12" y="130" fill="#10b981" class="mono" font-size="9">Scans, Violations, Remediations</text>
+    </g>
+
+    <!-- AI Remediation Engine -->
+    <g transform="translate(16, 220)">
+      <rect width="188" height="150" rx="8" fill="#1e293b" stroke="#ec4899" stroke-width="1" stroke-opacity="0.4" />
+      <text x="12" y="22" fill="#f472b6" class="sans" font-size="12" font-weight="600">Ollama AI Engine</text>
+      <text x="12" y="40" fill="#94a3b8" class="sans" font-size="11">Local LLM (llama3:8b)</text>
+      <text x="12" y="56" fill="#94a3b8" class="sans" font-size="11">Prompt injection defense</text>
+      <text x="12" y="72" fill="#94a3b8" class="sans" font-size="11">Zod schema validation</text>
+      <text x="12" y="88" fill="#94a3b8" class="sans" font-size="11">Strict JSON enforcement</text>
+      <text x="12" y="106" fill="#94a3b8" class="sans" font-size="11">30s timeout safety net</text>
+      <text x="12" y="124" fill="#ec4899" class="mono" font-size="9">Structured code fixes</text>
+    </g>
+
+    <!-- Deterministic Fallback -->
+    <g transform="translate(16, 385)">
+      <rect width="188" height="120" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="12" y="22" fill="#f8fafc" class="sans" font-size="12" font-weight="600">Deterministic Fallback</text>
+      <text x="12" y="40" fill="#94a3b8" class="sans" font-size="11">Zero external dependency</text>
+      <text x="12" y="56" fill="#94a3b8" class="sans" font-size="11">Ruleset-driven expert logic</text>
+      <text x="12" y="72" fill="#94a3b8" class="sans" font-size="11">Triggers if Ollama offline</text>
+      <text x="12" y="90" fill="#38bdf8" class="mono" font-size="9">100% Guaranteed uptime</text>
+    </g>
+  </g>
+
+  <!-- Connecting Arrows / Flow lines -->
+  <g stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4 3" fill="none">
+    <!-- Client to Ingress -->
+    <path d="M 310 200 L 350 200" />
+    <path d="M 310 330 L 350 330" />
+  </g>
+  <g stroke="#818cf8" stroke-width="1.5" stroke-dasharray="4 3" fill="none">
+    <!-- Ingress to Scanner -->
+    <path d="M 590 220 L 630 220" />
+  </g>
+  <g stroke="#10b981" stroke-width="1.5" stroke-dasharray="4 3" fill="none">
+    <!-- Scanner to Persistence -->
+    <path d="M 880 280 L 920 180" />
+  </g>
+  <g stroke="#ec4899" stroke-width="1.5" stroke-dasharray="4 3" fill="none">
+    <!-- Persistence to AI -->
+    <path d="M 880 430 L 920 320" />
+  </g>
+
+  <!-- Footer security banner -->
+  <g transform="translate(60, 675)">
+    <rect width="1080" height="30" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+    <text x="20" y="20" fill="#94a3b8" class="sans" font-size="11">
+      <tspan fill="#34d399" font-weight="700">SECURITY COMPLIANT:</tspan> SSRF Defenses (RFC 6052 NAT64 unmapping + Private CIDRs) • Strict CSP • Non-Root Docker Container • Parameterized SQL • Zod Sanitization
+    </text>
+  </g>
+</svg>

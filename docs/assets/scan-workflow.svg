@@ -1,0 +1,202 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
+  <defs>
+    <linearGradient id="flowBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="stepGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="cyanPill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="purplePill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#7c3aed" />
+    </linearGradient>
+    <linearGradient id="greenPill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <style>
+    .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+  </style>
+
+  <!-- Background -->
+  <rect width="1200" height="680" fill="url(#flowBg)" />
+
+  <!-- Grid overlay -->
+  <g stroke="#334155" stroke-width="1" stroke-opacity="0.2">
+    <line x1="0" y1="170" x2="1200" y2="170" />
+    <line x1="0" y1="340" x2="1200" y2="340" />
+    <line x1="0" y1="510" x2="1200" y2="510" />
+    <line x1="240" y1="0" x2="240" y2="680" />
+    <line x1="480" y1="0" x2="480" y2="680" />
+    <line x1="720" y1="0" x2="720" y2="680" />
+    <line x1="960" y1="0" x2="960" y2="680" />
+  </g>
+
+  <!-- Title & Subtitle -->
+  <text x="60" y="50" fill="#f8fafc" class="sans" font-size="24" font-weight="800">Scan Lifecycle &amp; Execution Pipeline</text>
+  <text x="60" y="75" fill="#94a3b8" class="sans" font-size="13">10-Phase Deterministic Audit Workflow from Ingress to Persistent Remediation</text>
+
+  <!-- Phase 1 to 5 (Top Row) -->
+  
+  <!-- Step 1 -->
+  <g transform="translate(60, 110)" filter="url(#cardShadow)">
+    <rect width="200" height="230" rx="12" fill="url(#stepGrad)" stroke="#38bdf8" stroke-width="1" />
+    <circle cx="32" cy="32" r="14" fill="url(#cyanPill)" />
+    <text x="28" y="37" fill="#ffffff" class="sans" font-size="12" font-weight="700">1</text>
+    <text x="56" y="37" fill="#38bdf8" class="sans" font-size="13" font-weight="700">URL Submission</text>
+    <text x="16" y="75" fill="#f8fafc" class="sans" font-size="12" font-weight="600">Client Ingress</text>
+    <text x="16" y="95" fill="#94a3b8" class="sans" font-size="11">POST /api/scans with target URL.</text>
+    <text x="16" y="115" fill="#94a3b8" class="sans" font-size="11">Rate limiter checks sliding token bucket.</text>
+    <rect x="16" y="170" width="168" height="35" rx="6" fill="#0f172a" />
+    <text x="24" y="192" fill="#38bdf8" class="mono" font-size="10">202 Accepted + UUID</text>
+  </g>
+
+  <!-- Step 2 -->
+  <g transform="translate(285, 110)" filter="url(#cardShadow)">
+    <rect width="200" height="230" rx="12" fill="url(#stepGrad)" stroke="#f59e0b" stroke-width="1" />
+    <circle cx="32" cy="32" r="14" fill="#f59e0b" />
+    <text x="28" y="37" fill="#ffffff" class="sans" font-size="12" font-weight="700">2</text>
+    <text x="56" y="37" fill="#fbbf24" class="sans" font-size="13" font-weight="700">SSRF Inspection</text>
+    <text x="16" y="75" fill="#f8fafc" class="sans" font-size="12" font-weight="600">DNS Resolution</text>
+    <text x="16" y="95" fill="#94a3b8" class="sans" font-size="11">Resolve A / AAAA records.</text>
+    <text x="16" y="115" fill="#94a3b8" class="sans" font-size="11">Block 127.0.0.1, 10/8, 169.254 AWS metadata.</text>
+    <text x="16" y="135" fill="#94a3b8" class="sans" font-size="11">RFC 6052 NAT64 IPv4 unmapping.</text>
+    <rect x="16" y="170" width="168" height="35" rx="6" fill="#0f172a" />
+    <text x="24" y="192" fill="#fbbf24" class="mono" font-size="10">Safe Public IP Pinned</text>
+  </g>
+
+  <!-- Step 3 -->
+  <g transform="translate(510, 110)" filter="url(#cardShadow)">
+    <rect width="200" height="230" rx="12" fill="url(#stepGrad)" stroke="#6366f1" stroke-width="1" />
+    <circle cx="32" cy="32" r="14" fill="url(#purplePill)" />
+    <text x="28" y="37" fill="#ffffff" class="sans" font-size="12" font-weight="700">3</text>
+    <text x="56" y="37" fill="#a855f7" class="sans" font-size="13" font-weight="700">Outbound Proxy</text>
+    <text x="16" y="75" fill="#f8fafc" class="sans" font-size="12" font-weight="600">Connection Pinning</text>
+    <text x="16" y="95" fill="#94a3b8" class="sans" font-size="11">Internal HTTP forward proxy binds to validated IP.</text>
+    <text x="16" y="125" fill="#94a3b8" class="sans" font-size="11">Immune to DNS rebinding (TOCTOU attacks).</text>
+    <rect x="16" y="170" width="168" height="35" rx="6" fill="#0f172a" />
+    <text x="24" y="192" fill="#a855f7" class="mono" font-size="10">Zero-Trust Network</text>
+  </g>
+
+  <!-- Step 4 -->
+  <g transform="translate(735, 110)" filter="url(#cardShadow)">
+    <rect width="200" height="230" rx="12" fill="url(#stepGrad)" stroke="#6366f1" stroke-width="1" />
+    <circle cx="32" cy="32" r="14" fill="url(#purplePill)" />
+    <text x="28" y="37" fill="#ffffff" class="sans" font-size="12" font-weight="700">4</text>
+    <text x="56" y="37" fill="#818cf8" class="sans" font-size="13" font-weight="700">Browser Launch</text>
+    <text x="16" y="75" fill="#f8fafc" class="sans" font-size="12" font-weight="600">Playwright Sandbox</text>
+    <text x="16" y="95" fill="#94a3b8" class="sans" font-size="11">Ephemeral context created.</text>
+    <text x="16" y="115" fill="#94a3b8" class="sans" font-size="11">Chromium headless with proxy configured.</text>
+    <text x="16" y="135" fill="#94a3b8" class="sans" font-size="11">Standard 1440x900 viewport.</text>
+    <rect x="16" y="170" width="168" height="35" rx="6" fill="#0f172a" />
+    <text x="24" y="192" fill="#818cf8" class="mono" font-size="10">Isolated Page Context</text>
+  </g>
+
+  <!-- Step 5 -->
+  <g transform="translate(960, 110)" filter="url(#cardShadow)">
+    <rect width="180" height="230" rx="12" fill="url(#stepGrad)" stroke="#38bdf8" stroke-width="1" />
+    <circle cx="32" cy="32" r="14" fill="url(#cyanPill)" />
+    <text x="28" y="37" fill="#ffffff" class="sans" font-size="12" font-weight="700">5</text>
+    <text x="56" y="37" fill="#38bdf8" class="sans" font-size="13" font-weight="700">Page Navigation</text>
+    <text x="16" y="75" fill="#f8fafc" class="sans" font-size="12" font-weight="600">DOM Hydration</text>
+    <text x="16" y="95" fill="#94a3b8" class="sans" font-size="11">page.goto(targetUrl).</text>
+    <text x="16" y="115" fill="#94a3b8" class="sans" font-size="11">Enforce redirect security &amp; 30s timeout barrier.</text>
+    <rect x="16" y="170" width="148" height="35" rx="6" fill="#0f172a" />
+    <text x="22" y="192" fill="#38bdf8" class="mono" font-size="10">networkidle State</text>
+  </g>
+
+  <!-- Phase 6 to 10 (Bottom Row) -->
+
+  <!-- Step 6 -->
+  <g transform="translate(960, 390)" filter="url(#cardShadow)">
+    <rect width="180" height="230" rx="12" fill="url(#stepGrad)" stroke="#10b981" stroke-width="1" />
+    <circle cx="32" cy="32" r="14" fill="url(#greenPill)" />
+    <text x="28" y="37" fill="#ffffff" class="sans" font-size="12" font-weight="700">6</text>
+    <text x="56" y="37" fill="#34d399" class="sans" font-size="13" font-weight="700">axe-core Run</text>
+    <text x="16" y="75" fill="#f8fafc" class="sans" font-size="12" font-weight="600">A11y Evaluation</text>
+    <text x="16" y="95" fill="#94a3b8" class="sans" font-size="11">Direct disk axe.min.js load.</text>
+    <text x="16" y="115" fill="#94a3b8" class="sans" font-size="11">Evaluate WCAG 2.0, 2.1, 2.2 rulesets.</text>
+    <rect x="16" y="170" width="148" height="35" rx="6" fill="#0f172a" />
+    <text x="22" y="192" fill="#34d399" class="mono" font-size="10">Raw Violation Tree</text>
+  </g>
+
+  <!-- Step 7 -->
+  <g transform="translate(735, 390)" filter="url(#cardShadow)">
+    <rect width="200" height="230" rx="12" fill="url(#stepGrad)" stroke="#10b981" stroke-width="1" />
+    <circle cx="32" cy="32" r="14" fill="url(#greenPill)" />
+    <text x="28" y="37" fill="#ffffff" class="sans" font-size="12" font-weight="700">7</text>
+    <text x="56" y="37" fill="#34d399" class="sans" font-size="13" font-weight="700">Normalization</text>
+    <text x="16" y="75" fill="#f8fafc" class="sans" font-size="12" font-weight="600">Scoring Algorithm</text>
+    <text x="16" y="95" fill="#94a3b8" class="sans" font-size="11">Deduplicate DOM targets.</text>
+    <text x="16" y="115" fill="#94a3b8" class="sans" font-size="11">Compute weighted score (0-100) based on severity.</text>
+    <rect x="16" y="170" width="168" height="35" rx="6" fill="#0f172a" />
+    <text x="24" y="192" fill="#34d399" class="mono" font-size="10">Structured Schema</text>
+  </g>
+
+  <!-- Step 8 -->
+  <g transform="translate(510, 390)" filter="url(#cardShadow)">
+    <rect width="200" height="230" rx="12" fill="url(#stepGrad)" stroke="#10b981" stroke-width="1" />
+    <circle cx="32" cy="32" r="14" fill="url(#greenPill)" />
+    <text x="28" y="37" fill="#ffffff" class="sans" font-size="12" font-weight="700">8</text>
+    <text x="56" y="37" fill="#34d399" class="sans" font-size="13" font-weight="700">Persistence</text>
+    <text x="16" y="75" fill="#f8fafc" class="sans" font-size="12" font-weight="600">SQLite / Drizzle</text>
+    <text x="16" y="95" fill="#94a3b8" class="sans" font-size="11">WAL mode write transaction.</text>
+    <text x="16" y="115" fill="#94a3b8" class="sans" font-size="11">Save scan summary, violations &amp; target nodes.</text>
+    <rect x="16" y="170" width="168" height="35" rx="6" fill="#0f172a" />
+    <text x="24" y="192" fill="#34d399" class="mono" font-size="10">Atomic DB Commit</text>
+  </g>
+
+  <!-- Step 9 -->
+  <g transform="translate(285, 390)" filter="url(#cardShadow)">
+    <rect width="200" height="230" rx="12" fill="url(#stepGrad)" stroke="#38bdf8" stroke-width="1" />
+    <circle cx="32" cy="32" r="14" fill="url(#cyanPill)" />
+    <text x="28" y="37" fill="#ffffff" class="sans" font-size="12" font-weight="700">9</text>
+    <text x="56" y="37" fill="#38bdf8" class="sans" font-size="13" font-weight="700">SSE Completion</text>
+    <text x="16" y="75" fill="#f8fafc" class="sans" font-size="12" font-weight="600">Client Notification</text>
+    <text x="16" y="95" fill="#94a3b8" class="sans" font-size="11">Emit stage: "completed".</text>
+    <text x="16" y="115" fill="#94a3b8" class="sans" font-size="11">Browser transitions seamlessly to dashboard.</text>
+    <rect x="16" y="170" width="168" height="35" rx="6" fill="#0f172a" />
+    <text x="24" y="192" fill="#38bdf8" class="mono" font-size="10">Progress: 100%</text>
+  </g>
+
+  <!-- Step 10 -->
+  <g transform="translate(60, 390)" filter="url(#cardShadow)">
+    <rect width="200" height="230" rx="12" fill="url(#stepGrad)" stroke="#ec4899" stroke-width="1" />
+    <circle cx="32" cy="32" r="14" fill="#ec4899" />
+    <text x="28" y="37" fill="#ffffff" class="sans" font-size="12" font-weight="700">10</text>
+    <text x="56" y="37" fill="#f472b6" class="sans" font-size="13" font-weight="700">Remediation</text>
+    <text x="16" y="75" fill="#f8fafc" class="sans" font-size="12" font-weight="600">AI / Fallback &amp; Export</text>
+    <text x="16" y="95" fill="#94a3b8" class="sans" font-size="11">Ollama LLM or Deterministic rule fixes.</text>
+    <text x="16" y="115" fill="#94a3b8" class="sans" font-size="11">Export to PDF, CSV, JSON.</text>
+    <rect x="16" y="170" width="168" height="35" rx="6" fill="#0f172a" />
+    <text x="24" y="192" fill="#f472b6" class="mono" font-size="10">Actionable Code Diff</text>
+  </g>
+
+  <!-- Connecting Flow Arrows -->
+  <g stroke="#38bdf8" stroke-width="2" fill="none">
+    <path d="M 260 225 L 285 225" />
+    <path d="M 485 225 L 510 225" />
+    <path d="M 710 225 L 735 225" />
+    <path d="M 935 225 L 960 225" />
+    <!-- Down from Step 5 to Step 6 -->
+    <path d="M 1050 340 L 1050 390" />
+    <!-- Back to Left from 6 to 10 -->
+    <path d="M 960 505 L 935 505" />
+    <path d="M 735 505 L 710 505" />
+    <path d="M 510 505 L 485 505" />
+    <path d="M 285 505 L 260 505" />
+  </g>
+</svg>
