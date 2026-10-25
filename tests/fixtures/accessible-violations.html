@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AccessAI Test Fixture with Intentional Accessibility Violations</title>
+</head>
+<body>
+  <header>
+    <h1>Accessibility Test Document</h1>
+  </header>
+
+  <main>
+    <section>
+      <!-- Violation 1: Image missing alt attribute (wcag111 / image-alt) -->
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10'></svg>">
+
+      <!-- Violation 2: Input without associated label (wcag332 / label) -->
+      <form action="/submit">
+        <input type="text" name="user_search" id="unlabeled-search-input">
+        <button type="submit">Search</button>
+      </form>
+
+      <!-- Violation 3: Button without text content or accessible name (wcag412 / button-name) -->
+      <button id="empty-icon-btn"></button>
+
+      <!-- Violation 4: Poor color contrast (wcag143 / color-contrast) -->
+      <p style="color: #fffffe; background-color: #ffffff;">
+        Low contrast light gray text on white background.
+      </p>
+    </section>
+  </main>
+</body>
+</html>

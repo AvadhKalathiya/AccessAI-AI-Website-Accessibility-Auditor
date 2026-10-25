@@ -1,0 +1,39 @@
+# Dependencies and build outputs
+node_modules/
+.next/
+out/
+build/
+dist/
+
+# Persistent SQLite database files
+data/*.db
+data/*.db-wal
+data/*.db-shm
+data/*.db-journal
+
+# Environment and secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Git and GitHub
+.git/
+.github/
+
+# Testing and coverage
+tests/
+coverage/
+.nyc_output/
+
+# Logs and scratch files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+scratch/
+
+# Operating system files
+.DS_Store
+Thumbs.db

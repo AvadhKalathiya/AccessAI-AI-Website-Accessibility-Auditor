@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Neutral Background & Foreground */
+    --background: #f8fafc;
+    --foreground: #0f172a;
+
+    /* Card & Panel Surfaces */
+    --card: #ffffff;
+    --card-foreground: #0f172a;
+
+    /* Muted Surfaces & Text */
+    --muted: #f1f5f9;
+    --muted-foreground: #475569;
+
+    /* Restrained Indigo Primary */
+    --primary: #4338ca;
+    --primary-foreground: #ffffff;
+    --primary-hover: #3730a3;
+
+    /* Secondary Controls */
+    --secondary: #e2e8f0;
+    --secondary-foreground: #1e293b;
+    --secondary-hover: #cbd5e1;
+
+    /* Subtle Borders & Inputs */
+    --border: #cbd5e1;
+    --input: #cbd5e1;
+
+    /* High-Visibility Focus Ring (WCAG 2.4.7 & 2.4.11) */
+    --ring: #4338ca;
+
+    /* Feedback & Severity Colors (WCAG AAA contrast on white/dark) */
+    --destructive: #b91c1c;
+    --destructive-foreground: #ffffff;
+
+    --success: #15803d;
+    --success-foreground: #ffffff;
+
+    --warning: #b45309;
+    --warning-foreground: #ffffff;
+
+    --info: #0369a1;
+    --info-foreground: #ffffff;
+  }
+
+  .dark {
+    --background: #090d16;
+    --foreground: #f1f5f9;
+
+    --card: #0f172a;
+    --card-foreground: #f1f5f9;
+
+    --muted: #1e293b;
+    --muted-foreground: #94a3b8;
+
+    --primary: #6366f1;
+    --primary-foreground: #ffffff;
+    --primary-hover: #4f46e5;
+
+    --secondary: #1e293b;
+    --secondary-foreground: #f1f5f9;
+    --secondary-hover: #334155;
+
+    --border: #334155;
+    --input: #334155;
+
+    --ring: #818cf8;
+
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+
+    --success: #22c55e;
+    --success-foreground: #ffffff;
+
+    --warning: #f59e0b;
+    --warning-foreground: #0f172a;
+
+    --info: #38bdf8;
+    --info-foreground: #0f172a;
+  }
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Clear, WCAG-compliant visible focus outline for all interactive elements */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  /* Respect user preference for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Accessible screen-reader-only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Print optimization styles for clean PDF export and browser printing */
+@media print {
+  header,
+  footer,
+  nav,
+  button,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .card,
+  article,
+  section {
+    break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #cbd5e1 !important;
+  }
+}

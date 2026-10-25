@@ -1,0 +1,72 @@
+name: AccessAI CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality-gates:
+    name: Lint, Typecheck, Test & Production Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    env:
+      NODE_ENV: test
+      CI: true
+      DATABASE_URL: file:./data/accessai-test.db
+      OLLAMA_BASE_URL: http://127.0.0.1:11434
+      OLLAMA_MODEL: llama3.2
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js v22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+
+      - name: Install dependencies reproducibly
+        run: npm ci
+
+      - name: Run TypeScript typecheck
+        run: npm run typecheck
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Install Playwright Chromium & system dependencies
+        run: npx playwright install --with-deps chromium
+
+      - name: Run automated test suite (Unit, Integration & Security)
+        run: npm run test
+
+      - name: Run End-to-End user journey test suite
+        run: npm run test:e2e
+
+      - name: Verify Next.js production build
+        env:
+          NODE_ENV: production
+        run: npm run build
+
+      - name: Upload build artifacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-failure-diagnostics
+          path: |
+            .next/
+            *.log
+          retention-days: 7
