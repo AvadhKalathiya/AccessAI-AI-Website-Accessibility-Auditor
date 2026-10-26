@@ -95,6 +95,7 @@ RUN npx playwright install chromium
 # Runtime environment defaults
 ENV NODE_ENV=production \
     PORT=3000 \
+    PATH="/app/node_modules/.bin:$PATH" \
     DATABASE_URL=file:/app/data/accessai.db \
     OLLAMA_BASE_URL=http://host.docker.internal:11434 \
     OLLAMA_MODEL=llama3.2 \
