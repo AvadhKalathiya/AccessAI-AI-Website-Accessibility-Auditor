@@ -91,12 +91,7 @@ The screenshots below reflect the actual running AccessAI application executed a
 
 ### 2. Comprehensive Scan Report & Score Breakdown
 ![AccessAI Scan Report](./docs/assets/screenshot-report.png)
-*Audit report displaying overall score (0–100), severity summary badges (Critical, Serious, Moderate, Minor), searchable violation cards, DOM selectors, and the AI remediation panel.*
-
-### 3. Scan History & Temporal Analytics Dashboard
-![AccessAI Scan History](./docs/assets/screenshot-history.png)
-*Historical audit dashboard featuring compliance score trends, severity distributions, multi-range filtering, and direct links to past scan records.*
-
+*Audit report displaying overall score (0–100), severity summary badges (Critical, Serious, Moderate, Minor), searchable violation cards, DOM selectors, and the AI remediation panel.
 ---
 
 ## 6.5 How AccessAI Works
